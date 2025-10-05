@@ -2,10 +2,7 @@ name: Flight Price Check
 
 on:
   schedule:
-    # Runs every hour
     - cron: '0 * * * *'
-  
-  # Allow manual trigger
   workflow_dispatch:
 
 jobs:
