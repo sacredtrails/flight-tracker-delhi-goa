@@ -1,0 +1,13 @@
+{
+  "name": "flight-tracker",
+  "version": "1.0.0",
+  "description": "Delhi to Goa flight price tracker",
+  "main": "check-flights.js",
+  "scripts": {
+    "check": "node check-flights.js"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "nodemailer": "^6.9.7"
+  }
+}

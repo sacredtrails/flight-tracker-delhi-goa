@@ -1,0 +1,36 @@
+name: Flight Price Check
+
+on:
+  schedule:
+    # Runs at 3:30 AM and 12:30 PM UTC (9:00 AM and 6:00 PM IST)
+    - cron: '30 3,12 * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  check-flights:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🛫 Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: 📦 Install dependencies
+        run: npm install
+      
+      - name: 🔍 Check flight prices
+        env:
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        run: npm run check
+      
+      - name: ✅ Job complete
+        run: echo "Flight check completed at $(date)"
