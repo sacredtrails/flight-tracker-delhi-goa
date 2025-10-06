@@ -13,8 +13,8 @@ const CONFIG = {
 const FLIGHT_CONFIG = {
     origin: 'DEL',
     destination: 'GOI',
-    outboundDate: '2024-11-14',
-    returnDate: '2024-11-18',
+    outboundDate: '2025-11-14',
+    returnDate: '2025-11-18',
     departureTimeStart: '18:00',
     returnTimeStart: '12:00',
     returnTimeEnd: '17:00',
@@ -305,7 +305,7 @@ function generateDailySummaryEmail(categories, history) {
     <div class="container">
         <div class="header">
             <h1>Daily Flight Update</h1>
-            <p>Delhi to Goa | 14 Nov 2024 (6PM onwards)</p>
+            <p>Delhi to Goa | 14 Nov 2025 (6PM onwards)</p>
             <p>${new Date().toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' })}</p>
         </div>
 
