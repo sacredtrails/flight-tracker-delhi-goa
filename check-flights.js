@@ -227,7 +227,11 @@ function savePriceHistory(history) {
 // Check if it's 10 AM
 function is10AM() {
     const now = new Date();
-    return now.getHours() === 10 && now.getMinutes() < 60;
+    // Convert to IST (UTC+5:30)
+    const istOffset = 5.5 * 60 * 60 * 1000; // 5 hours 30 minutes in milliseconds
+    const istTime = new Date(now.getTime() + istOffset);
+    const istHour = istTime.getUTCHours();
+    return istHour === 10;
 }
 
 // Get today's date string
